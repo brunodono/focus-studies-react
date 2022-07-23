@@ -23,9 +23,8 @@ export default function Timer({ selected }: Props){
             <p className={style.title}>
                 Choose a card and start the timer
             </p>
-            Time: {time}
             <div className={style.watchWrapper}>
-                <Watch />
+                <Watch time={time} />
             </div>
             <Button>
                 Start!

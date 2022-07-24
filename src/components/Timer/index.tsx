@@ -16,7 +16,18 @@ export default function Timer({ selected }: Props){
         if (selected?.time) {
             setTime(timeToSeconds(selected.time))
         }
-    },[selected])
+    },[selected]);
+
+    function countdown(counter:number = 0) {
+        setTimeout(()=>{
+            if(counter > 0) {
+                setTime(counter-1);
+                return countdown(counter -1);
+            }
+            alert('chegou a zero')
+        },1000)
+
+    }
 
     return(
         <div className={style.timer}>
@@ -26,7 +37,7 @@ export default function Timer({ selected }: Props){
             <div className={style.watchWrapper}>
                 <Watch time={time} />
             </div>
-            <Button>
+            <Button onClick={() => countdown(time)}>
                 Start!
             </Button>
         </div>

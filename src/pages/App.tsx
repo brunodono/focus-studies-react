@@ -4,6 +4,7 @@ import Form from '../components/Form';
 import List from '../components/List';
 import { ITask } from '../types/ITasks';
 import style from './App.module.scss';
+import Swal from 'sweetalert2';
 
 
 
@@ -20,17 +21,26 @@ function App() {
   function finishTask(){
     if(selected){
       setSelected(undefined);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: `${selected.task} completed`,
+        showConfirmButton: false,
+        timer: 1500
+      });
       setTasks(oldTasks =>oldTasks.map(task => {
       if (task.id === selected.id) {
         return {
           ...task, selected:false,
           completed:true
+
         }
       }
       return task;
     }))
     }
   }
+
 
   return (
     <div className={style.AppStyle}>
@@ -40,6 +50,7 @@ function App() {
       selectTask={selectTask}
       />
       <Timer selected={selected} finishTask={finishTask} />
+      
     </div>
   );
 }

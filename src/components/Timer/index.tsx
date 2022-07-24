@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 interface Props {
     selected: ITask | undefined;
-    finishTask: () => void
+    finishTask: () => void;
 }
 
 export default function Timer({ selected, finishTask }: Props){

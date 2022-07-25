@@ -48,7 +48,7 @@ function Form({ setTasks }: Props) {
                     Time
                 </label>
                 <input
-                    type="time"
+                    type="text"
                     step="1"
                     name="time"
                     value={time}

@@ -10,7 +10,7 @@ interface Props {
 
 function Form({ setTasks }: Props) {
     const [task, setTask] = useState("");
-    const [time, setTime] = useState("00:00")
+    const [time, setTime] = useState("00:00:00")
     function addTask(event: React.FormEvent) {
         event.preventDefault();
         setTasks((oldTasks) =>
@@ -23,7 +23,7 @@ function Form({ setTasks }: Props) {
                 id: uuidv4()
             }]);
             setTask("");
-            setTime("00:00");
+            setTime("00:00:00");
     };
 
     return (
